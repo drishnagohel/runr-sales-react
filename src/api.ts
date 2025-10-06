@@ -24,7 +24,7 @@ export const getAllCreator = async (offset = 0, limit = 5, search = "") => {
     
   } catch (error) {
     return { status: false, data: [], count: 0 };
-  }
+  } 
 };
 export const addCreator = async (data) => {
   const response = await axios.post(`${API_URL_SALES}/addcreator`, data);
@@ -88,6 +88,63 @@ export const deleteSalesperson = async (data) => {
   return response.data;
 };
 
+//Client
+export const addClient = async (data) => {
+  const response = await axios.post(`${API_URL_SALES}/addclient`, data);
+  return response.data;
+};
+export const getAllClient = async (offset = 0, limit = 5, search = "") => {
+  try {
+    const response = await axios.post(`${API_URL_SALES}/getallclient`, {
+      offset,
+      limit,
+      search,
+    });
+
+    return response.data; 
+  } catch (error) {
+    console.error("API Error:", error);
+    return { status: false, data: [], count: 0 };
+  }
+};
+export const updateClient = async (data) => {
+  const response = await axios.post(`${API_URL_SALES}/updateclient`, data);
+  return response.data;
+};
+export const deleteClient = async (data) => {
+  const response = await axios.post(`${API_URL_SALES}/deleteclient`, data);
+  return response.data;
+};
+
+// Add Sales
+export const addSales = async (data) => {
+  const response = await axios.post(`${API_URL_SALES}/addsales`, data);
+  return response.data;
+};
+export const getAllSales = async (offset = 0, limit = 5, search = "") => {
+  try {
+    const response = await axios.post(`${API_URL_SALES}/getallsales`, {
+      offset,
+      limit,
+      search,
+    });
+
+    return response.data; 
+  } catch (error) {
+    console.error("API Error:", error);
+    return { status: false, data: [], count: 0 };
+  }
+};
+export const updateSales = async (data) => {
+  const response = await axios.post(`${API_URL_SALES}/updatesales`, data);
+  return response.data;
+};
+export const deleteSales = async (data) => {
+  const response = await axios.post(`${API_URL_SALES}/deletesales`, data);
+  return response.data;
+};
+
+
 // Add SMM
 export const addSMM = async (data) => {
   const response = await axios.post(`${API_URL_SALES}/addsalesmanager`, data);
@@ -115,7 +172,6 @@ export const deleteSMM = async (data) => {
   const response = await axios.post(`${API_URL_SALES}/deletesalesmanager`, data);
   return response.data;
 };
-
 
 // User
 export const addUser = async (data) => {
@@ -178,7 +234,7 @@ export const getAllRole = async () => {
 
 export const getAllSalesParson = async () => {
   try {
-    const response = await axios.post(`${API_URL}/getallconfigurationtype`);
+    const response = await axios.post(`${API_URL_SALES}/getallsalesmanager`);
     const result = response.data;
 
     if (result.status === 200) {
@@ -192,9 +248,72 @@ export const getAllSalesParson = async () => {
   }
 };
 
+export const getAllParson = async () => {
+  try {
+    const response = await axios.post(`${API_URL_SALES}/getallsalesperson`);
+    const result = response.data;
+
+    if (result.status === 200) {
+      return result.data; // assume it's already JSON
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching roles:", error);
+    return [];
+  }
+};
+
+export const getAllCreatorDropdown = async () => {
+  try {
+    const response = await axios.post(`${API_URL_SALES}/getallcreator`);
+    const result = response.data;
+
+    if (result.status === 200) {
+      return result.data; // assume it's already JSON
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching roles:", error);
+    return [];
+  }
+};
+
+export const getAllClientDropdown = async () => {
+  try {
+    const response = await axios.post(`${API_URL_SALES}/getallclient`);
+    const result = response.data;
+
+    if (result.status === 200) {
+      return result.data; 
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching roles:", error);
+    return [];
+  }
+};
+
+
 export const TotalCount = async (data) => {
   const response = await axios.post(`${API_URL}/count`, data);
   return response.data;
 };
 
+// export const Getallclientselect2 = async (data) => {
+//   const response = await axios.post(`${API_URL_SALES}/getallclientselect2`, data);
+//   return response.data;
+// };
+
+export const Getallclientselect2 = async (search = "") => {
+  try {
+    const response = await axios.post(`${API_URL_SALES}/getallclientselect2`, { search });
+    return response.data; // [{ client_id, client_name }, ...]
+  } catch (err) {
+    console.error("API error:", err);
+    return [];
+  }
+};
 
