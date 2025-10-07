@@ -37,7 +37,7 @@ export default function Blank() {
               {/* Client Card */}
               <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition dark:border-gray-800 dark:bg-white/[0.03]">
                 <div className="flex flex-col items-center text-center space-y-3">
-                  <a href="#" className="flex flex-col items-center space-y-2 text-gray-800 dark:text-white/90 hover:text-blue-600">
+                  <a href="client" className="flex flex-col items-center space-y-2 text-gray-800 dark:text-white/90 hover:text-blue-600">
                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                       <path d="M12 3l8 4.5v9l-8 4.5l-8 -4.5v-9z"></path>

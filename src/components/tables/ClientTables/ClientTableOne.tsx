@@ -215,7 +215,7 @@ export default function ClientTable() {
             <h2 className="text-xl font-bold mb-4">{selectedClient ? "Edit Client" : "Add Client"}</h2>
             <div className="space-y-4">
               <input type="text" placeholder="Name" value={form.client_name} onChange={(e) => setForm({ ...form, client_name: e.target.value })} className="w-full border px-3 py-2 rounded"/>
-              <input type="text" placeholder="Mobile" value={form.client_mobile} onChange={(e) => setForm({ ...form, client_mobile: e.target.value })} className="w-full border px-3 py-2 rounded"/>
+              <input type="number" placeholder="Mobile" value={form.client_mobile} onChange={(e) => setForm({ ...form, client_mobile: e.target.value })} className="w-full border px-3 py-2 rounded" maxLength={10} minLength={10} />
               <input type="email" placeholder="Email" value={form.client_email} onChange={(e) => setForm({ ...form, client_email: e.target.value })} className="w-full border px-3 py-2 rounded"/>
               <div className="flex justify-end space-x-2">
                 <Button onClick={() => setIsAddOpen(false)} className="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Cancel</Button>
